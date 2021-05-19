@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Common
 {
-    /// <summary>
-    /// Interfejs koji ce imlementirati serverska strana.
-    /// Klijentska strana ce koristiti operacije interfejsa.
-    /// </summary>
-    public interface IBalancerService
+	/// <summary>
+	/// Interfejs koji ce imlementirati serverska strana.
+	/// Klijentska strana ce koristiti operacije interfejsa.
+	/// </summary>
+	/// Dodat operation contract i operation contract jer ce ova klasa i njene metoe koristiti za wcf komunikaciju
+	[ServiceContract]
+	public interface IBalancerService
     {
-        bool Write();
+		[OperationContract]
+		bool Write();
 
-        bool On();
+		[OperationContract]
+		bool On();
 
-        bool Off();
+		[OperationContract]
+		bool Off();
 
-        List<Item> ItemsInterval();
+		[OperationContract]
+		List<Item> ItemsInterval();
     }
 }
