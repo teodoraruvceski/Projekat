@@ -16,10 +16,11 @@ namespace Common
 	public interface IBalancerService
     {
 		[OperationContract]
-		bool Write();
+		bool Write(Item item);
 
 		[OperationContract]
-		bool On();
+		bool On(Code c, double v);
+	
 
 		[OperationContract]
 		bool Off();
