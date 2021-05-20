@@ -49,5 +49,66 @@ namespace LoadBalancer
 
 	public class BalancerService
     {
-    }
+		Description one;
+		Description two;
+		Description three;
+		Description four;
+		static ListDescription listDescription;
+
+		public BalancerService()
+		{
+
+			one = new Description(1);
+			two = new Description(2);
+			three = new Description(3);
+			four = new Description(4);
+
+
+
+
+			listDescription = new ListDescription(new List<Description>() { one, two, three, four });
+
+		}
+
+		public bool Write(Item item)
+		{
+			Console.WriteLine("Code: " + item.Code + " Value: " + item.Value);
+			if (item.Code == Code.CODE_ANALOG || item.Code == Code.CODE_DIGITAL)
+			{
+				foreach (Description d in listDescription.List)
+				{
+					if (d.DataSet == 1)/////
+						d.Add(item);
+				}
+			}
+
+			else if (item.Code == Code.CODE_CUSTOM || item.Code == Code.CODE_LIMITSET)
+			{
+				foreach (Description d in listDescription.List)
+				{
+					if (d.DataSet == 2)
+						d.Add(item);
+				}
+			}
+			else if (item.Code == Code.CODE_SINGLENODE || item.Code == Code.CODE_MULTIPLENODE)
+			{
+				foreach (Description d in listDescription.List)
+				{
+					if (d.DataSet == 3)
+						d.Add(item);
+				}
+			}
+			else if (item.Code == Code.CODE_SOURCE || item.Code == Code.CODE_CONSUMER)
+			{
+				foreach (Description d in listDescription.List)
+				{
+					if (d.DataSet == 4)
+						d.Add(item);
+				}
+			}
+
+
+			return true;
+		}
+	}
 }

@@ -13,8 +13,14 @@ namespace Common
 	/// </summary>
 	public enum Code
 	{
-		[EnumMember] CODE_ANALOG, [EnumMember] CODE_DIGITAL, [EnumMember] CODE_CUSTOM, [EnumMember] CODE_LIMITSET, [EnumMember] CODE_SINGLENODE,
-		[EnumMember] CODE_MULTIPLENODE, [EnumMember] CODE_CONSUMER, [EnumMember] CODE_SOURCE
+		[EnumMember] CODE_ANALOG, 
+		[EnumMember] CODE_DIGITAL, 
+		[EnumMember] CODE_CUSTOM, 
+		[EnumMember] CODE_LIMITSET, 
+		[EnumMember] CODE_SINGLENODE,
+		[EnumMember] CODE_MULTIPLENODE, 
+		[EnumMember] CODE_CONSUMER, 
+		[EnumMember] CODE_SOURCE 
 	}
 	/// <summary>
 	/// Item ce biti tip podataka koji se salje od klijenta ka serveru na obradu
