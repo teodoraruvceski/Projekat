@@ -21,6 +21,9 @@ namespace LoadBalancer
 		}
 		static void Main(string[] args)
         {
-        }
+			Task task = Task.Factory.StartNew(() => Conn());
+			Console.WriteLine("Press any key to close application.");
+			Console.Read();
+		}
     }
 }
