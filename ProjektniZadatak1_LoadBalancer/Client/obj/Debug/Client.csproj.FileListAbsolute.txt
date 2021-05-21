@@ -8,3 +8,13 @@ C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\
 C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.exe
 C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.pdb
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\bin\Debug\Client.exe.config
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\bin\Debug\Client.exe
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\bin\Debug\Client.pdb
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\bin\Debug\Common.dll
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\bin\Debug\Common.pdb
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.csprojAssemblyReference.cache
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.csproj.CopyComplete
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.exe
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Client\obj\Debug\Client.pdb

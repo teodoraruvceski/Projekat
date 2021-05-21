@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-
+using Common;
 namespace LoadBalancer
 {
     class Program
@@ -12,7 +12,7 @@ namespace LoadBalancer
 		public static void Conn()
 		{
 			ServiceHost sh = new ServiceHost(typeof(BalancerService));
-			sh.AddServiceEndpoint(typeof(Common.IBalancerService), new NetTcpBinding(), new Uri("net.tcp://localhost:4002/IBalancerService"));
+			sh.AddServiceEndpoint(typeof(IBalancerService), new NetTcpBinding(), new Uri("net.tcp://localhost:4002/IBalancerService"));
 			sh.Open();
 			Console.WriteLine("Servis otvoren.");
 

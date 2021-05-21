@@ -47,7 +47,7 @@ namespace LoadBalancer
 		}
 	}
 
-	public class BalancerService
+	public class BalancerService : IBalancerService
     {
 		Description one;
 		Description two;
@@ -109,6 +109,21 @@ namespace LoadBalancer
 
 
 			return true;
+		}
+
+		public bool On(Code c, double v)
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool Off()
+		{
+			throw new NotImplementedException();
+		}
+
+		public List<Item> ItemsInterval()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
