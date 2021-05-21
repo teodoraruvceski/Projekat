@@ -1,0 +1,10 @@
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\LoadBalancer.exe.config
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\LoadBalancer.exe
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\LoadBalancer.pdb
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\Common.dll
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\Common.pdb
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csprojAssemblyReference.cache
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csproj.CoreCompileInputs.cache
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csproj.CopyComplete
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.exe
+C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.pdb
