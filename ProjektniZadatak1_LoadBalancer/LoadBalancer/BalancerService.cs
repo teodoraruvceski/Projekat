@@ -54,6 +54,9 @@ namespace LoadBalancer
 		Description three;
 		Description four;
 		static ListDescription listDescription;
+		static List<Worker> workers;
+
+		public List<Worker> Workers { get => workers; set => workers = value; }
 
 		public BalancerService()
 		{
@@ -65,7 +68,8 @@ namespace LoadBalancer
 
 
 
-
+			Workers = new List<Worker>();
+			Workers.Add(new Worker());
 			listDescription = new ListDescription(new List<Description>() { one, two, three, four });
 
 		}
@@ -111,17 +115,31 @@ namespace LoadBalancer
 			return true;
 		}
 
-		public bool On(Code c, double v)
+		public bool On()
 		{
 			throw new NotImplementedException();
 		}
-
+		/// <summary>
+		/// Metoda koja gasi workera i uklanja ga iz liste.
+		/// Ne obazire se tacno kog workera gasi
+		/// </summary>
 		public bool Off()
 		{
+			if (Workers.Count() > 0)
+				Workers.RemoveAt(Workers.Count() - 1);
+			else
+				return false;
+			Console.WriteLine("Ugasen worker!");
+			return true;
+
+		}
+
+		public List<Item> ItemsInterval(int workerId, Code code, DateTime from, DateTime to)
+		{
 			throw new NotImplementedException();
 		}
 
-		public List<Item> ItemsInterval()
+		public int NumberOfWorkers()
 		{
 			throw new NotImplementedException();
 		}

@@ -19,13 +19,16 @@ namespace Common
 		bool Write(Item item);
 
 		[OperationContract]
-		bool On(Code c, double v);
+		bool On();
 	
 
 		[OperationContract]
 		bool Off();
 
 		[OperationContract]
-		List<Item> ItemsInterval();
-    }
+		List<Item> ItemsInterval(int workerId, Code code, DateTime from, DateTime to);
+
+		[OperationContract]
+		int NumberOfWorkers();
+	}
 }
