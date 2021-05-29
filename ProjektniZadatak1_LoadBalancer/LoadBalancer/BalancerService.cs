@@ -117,7 +117,12 @@ namespace LoadBalancer
 
 		public bool On()
 		{
-			throw new NotImplementedException();
+			Worker w = new Worker();
+			Workers.Add(w);
+			//log.Write(DateTime.Now, workers.Count() - 1, false);
+			Console.WriteLine("Upaljen worker!");
+			Console.WriteLine("Trenutan broj workera je " + workers.Count());
+			return true;
 		}
 		/// <summary>
 		/// Metoda koja gasi workera i uklanja ga iz liste.
