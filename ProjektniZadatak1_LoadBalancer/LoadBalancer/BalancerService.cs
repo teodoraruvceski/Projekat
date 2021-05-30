@@ -141,7 +141,11 @@ namespace LoadBalancer
 
 		public List<Item> ItemsInterval(int workerId, Code code, DateTime from, DateTime to)
 		{
-			throw new NotImplementedException();
+			Off();
+			Worker w = new Worker();
+			List<Item> ret = w.ItemsInterval(workerId, code, from, to);
+			On();
+			return ret;
 		}
 
 		public int NumberOfWorkers()
