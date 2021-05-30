@@ -125,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalancerService.cs" />
+    <Compile Include="DB\DBProvider.cs" />
+    <Compile Include="DB\ItemTable.cs" />
     <Compile Include="DB\ProjectDBContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
