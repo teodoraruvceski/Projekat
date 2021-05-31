@@ -4,3 +4,8 @@ C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\
 C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.dll
 C:\Users\Nebojsa\Desktop\res\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.pdb
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\bin\Debug\Common.dll
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\bin\Debug\Common.pdb
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.dll
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.pdb
