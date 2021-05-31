@@ -18,7 +18,7 @@ namespace LoadBalancer.DB
 
 		public DBProvider()
 		{
-			
+			Log = new Log(@"FILElog\writerLogServer.txt");
 		}
 
 		//Metoda za dodavanje entiteta u bazu, tabelu
@@ -37,7 +37,7 @@ namespace LoadBalancer.DB
 							{
 								ss = i.Code.ToString();
 								db.One.Add(new ItemTable() { WorkerId = wid, Code = ss, Value = i.Value, TimeStamp = DateTime.Now });
-								/////
+								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db.SaveChanges();
 								continue;
 							}
@@ -63,7 +63,7 @@ namespace LoadBalancer.DB
 							{
 								ss = i.Code.ToString();
 								db.One.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
-								/////
+								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db.SaveChanges();
 							}
 						}
@@ -93,7 +93,7 @@ namespace LoadBalancer.DB
 							{
 								ss = i.Code.ToString();
 								db2.Two.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
-								/////
+								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db2.SaveChanges();
 							}
 						}
@@ -121,7 +121,7 @@ namespace LoadBalancer.DB
 							{
 								ss = i.Code.ToString();
 								db3.Three.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
-								/////
+								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db3.SaveChanges();
 							}
 						}
@@ -148,7 +148,7 @@ namespace LoadBalancer.DB
 							{
 								ss = i.Code.ToString();
 								db4.Four.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
-								/////
+								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db4.SaveChanges();
 
 							}
@@ -231,7 +231,7 @@ namespace LoadBalancer.DB
 			return ret;
 
 		}
-		//Metoda da brisanje 
+		//Metoda da brisanje svih entiteta
 		public void DeleteAll()
 		{
 			using (var db = new ProjectDBContext())

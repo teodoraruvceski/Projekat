@@ -5,6 +5,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using LoadBalancer.DB;
+
 namespace LoadBalancer
 {
     class Program
@@ -21,9 +23,18 @@ namespace LoadBalancer
 		}
 		static void Main(string[] args)
         {
+			{
+				DBProvider p = new DBProvider();
+				p.DeleteAll();
+			}
+			Log log = new Log(@"FILElog\writerLogServer.txt");
 			Task task = Task.Factory.StartNew(() => Conn());
+			BalancerService bs = new BalancerService();
+			Task task2 = Task.Factory.StartNew(() => bs.StartWorkers());
+
 			Console.WriteLine("Press any key to close application.");
 			Console.Read();
+			log.Write(DateTime.Now);
 		}
     }
 }

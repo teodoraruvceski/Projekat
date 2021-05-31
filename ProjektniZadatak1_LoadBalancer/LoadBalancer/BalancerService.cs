@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LoadBalancer
@@ -72,6 +73,36 @@ namespace LoadBalancer
 			Workers.Add(new Worker());
 			listDescription = new ListDescription(new List<Description>() { one, two, three, four });
 
+		}
+		/// <summary>
+		/// Metoda koja poziva metodu obradi od workera i radi na principu RoundRobin, pravilno rasporedjuje posao na sve workere
+		/// </summary>
+		public void StartWorkers()
+		{
+			int brojWorkera = workers.Count();
+			int i = 0;
+			Console.WriteLine("Workers started!");
+			while (true)
+			{
+				if (Workers.Count() > 0)
+				{
+					if (i > Workers.Count() - 1)
+					{
+						i = 0;
+					}
+					// i. worker obradjuje trenutni buffer
+					workers[i].Obrada(listDescription, i);
+					foreach (Description d in listDescription.List)
+					{
+						d.ListItem.Clear();
+					}
+					Console.WriteLine("worker " + i);
+					i++;
+					Thread.Sleep(5000);
+				}
+				else
+					i = 0;
+			}
 		}
 
 		public bool Write(Item item)

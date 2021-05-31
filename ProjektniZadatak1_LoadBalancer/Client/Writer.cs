@@ -15,10 +15,14 @@ namespace Client
 	/// </summary>
 	public class Writer
 	{
+		private Log log;
+
 		public Writer()
 		{
-
+			Log = new Log(@"FILElog\writerLog.txt");
 		}
+		public Log Log { get => log; set => log = value; }
+
 		/// <summary>
 		/// Menu koji ispisuje moguce komande korisnika
 		/// </summary>
@@ -115,6 +119,7 @@ namespace Client
 					item = new Item((Code)c, v);
 
 					kanal.Write(item);//Slanje item-a
+					Log.Write((Code)c, v, DateTime.Now); //Logovanje upisa
 					v = r.NextDouble() * (1000.0 - 1.0) + 1.0;
 					c = rr.Next(0, 7);
 				}
@@ -154,7 +159,8 @@ namespace Client
 						foreach (Item i in lista)
 							Console.WriteLine(i);
 						break;
-					case 5: //odustajanje od bilo koje akcije i nakon toga program nastavljka da radi automatski
+					case 5: //odustajanje od bilo koje akcije i nakon toga program se gasi
+						Log.Write(DateTime.Now);
 						return;
 					default:
 						Console.WriteLine("Nepostojeca komanda...");
