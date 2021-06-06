@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Common
 	/// Interfejs koji ce imlementirati serverska strana.
 	/// Klijentska strana ce koristiti operacije interfejsa.
 	/// </summary>
-	/// Dodat operation contract i operation contract jer ce ova klasa i njene metoe koristiti za wcf komunikaciju
+	/// Dodat operation contract i operation contract jer ce ova klasa i njene metoe koristiti za wcf komunikaciju	
 	[ServiceContract]
 	public interface IBalancerService
     {

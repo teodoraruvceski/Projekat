@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,37 +21,39 @@ namespace LoadBalancer.DB
 		{
 			Log = new Log(@"FILElog\writerLogServer.txt");
 		}
-
 		//Metoda za dodavanje entiteta u bazu, tabelu
+		[ExcludeFromCodeCoverage]
 		public void Add(Description d, int wid)
 		{
+            if (d.ListItem == null)
+            {
+				throw new ArgumentNullException("Struktura Description nije poptuno inicijalizovana.");
+			}
+			else if (wid < 0)
+            {
+				throw new ArgumentException("Argument ne sme biti manji od 1 ili veci od 4.");
+			}
 			string ss;
 			switch (d.DataSet)
 			{
 				case 1:
 					using (var db = new ProjectDBContext())
 					{
-
 						foreach (Item i in d.ListItem)
 						{
 							if (i.Code == Code.CODE_DIGITAL)
 							{
 								ss = i.Code.ToString();
-								db.One.Add(new ItemTable() { WorkerId = wid, Code = ss, Value = i.Value, TimeStamp = DateTime.Now });
+								db.One.Add(new ItemTable( ss,  i.Value,DateTime.Now, wid));
 								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db.SaveChanges();
 								continue;
 							}
-
-							var query = //VAS KOD JE VRACEN napustam
+							var query = 
 								 (from o in db.One
 								  where o.Code == i.Code.ToString()
 								  select o).ToList<ItemTable>();
-
-
 							bool b = false;
-
-
 							foreach (ItemTable ii in query)
 							{
 								if (Math.Abs(ii.Value - i.Value) < ii.Value * 0.02)
@@ -62,7 +65,7 @@ namespace LoadBalancer.DB
 							if (!b)
 							{
 								ss = i.Code.ToString();
-								db.One.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
+								db.One.Add(new ItemTable(ss, i.Value, DateTime.Now, wid));
 								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db.SaveChanges();
 							}
@@ -78,9 +81,7 @@ namespace LoadBalancer.DB
 								(from o in db2.Two
 								 where o.Code == i.Code.ToString()
 								 select o).ToList<ItemTable>();
-							bool b = false;
-							Console.WriteLine(query.Count()); //dodao da vidim vrati li entitete
-
+							bool b = false;							
 							foreach (ItemTable ii in query)
 							{
 								if (Math.Abs(ii.Value - i.Value) < ii.Value * 0.02)
@@ -92,7 +93,7 @@ namespace LoadBalancer.DB
 							if (!b)
 							{
 								ss = i.Code.ToString();
-								db2.Two.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
+								db2.Two.Add(new ItemTable(ss, i.Value, DateTime.Now, wid));
 								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db2.SaveChanges();
 							}
@@ -104,7 +105,6 @@ namespace LoadBalancer.DB
 					{
 						foreach (Item i in d.ListItem)
 						{
-
 							var query = from o in db3.Three
 										where o.Code == i.Code.ToString()
 										select o;
@@ -120,7 +120,7 @@ namespace LoadBalancer.DB
 							if (!b)
 							{
 								ss = i.Code.ToString();
-								db3.Three.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
+								db3.Three.Add(new ItemTable(ss, i.Value, DateTime.Now, wid));
 								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db3.SaveChanges();
 							}
@@ -147,10 +147,9 @@ namespace LoadBalancer.DB
 							if (!b)
 							{
 								ss = i.Code.ToString();
-								db4.Four.Add(new ItemTable() { Code = ss, Value = i.Value, WorkerId = wid, TimeStamp = DateTime.Now });
+								db4.Four.Add(new ItemTable(ss, i.Value, DateTime.Now, wid));
 								Log.Write(i.Code, i.Value, DateTime.Now, wid);
 								db4.SaveChanges();
-
 							}
 						}
 					}
@@ -159,6 +158,7 @@ namespace LoadBalancer.DB
 			}
 		}
 		//Metoda za dobijanje entiteta koj isu vec upisani u bazu
+		[ExcludeFromCodeCoverage]
 		public List<Item> GetItems(int workerId, Code code, DateTime fr, DateTime to)
 		{
 			List<Item> ret = new List<Item>();
@@ -218,7 +218,7 @@ namespace LoadBalancer.DB
 					ss = code.ToString();
 					var query = from o in db4.Four
 								where o.Code == ss && o.WorkerId == workerId && o.TimeStamp < to && o.TimeStamp > fr
-								select o;
+								select o;					
 					foreach (ItemTable it in query)
 					{
 						Code ct;
@@ -227,11 +227,13 @@ namespace LoadBalancer.DB
 					}
 				}
 			}
-
+			log.Read(fr, to, DateTime.Now, workerId,code);
 			return ret;
-
 		}
-		//Metoda da brisanje svih entiteta
+		/// <summary>
+		/// Metoda da brisanje svih entiteta
+		/// </summary>
+		[ExcludeFromCodeCoverage]
 		public void DeleteAll()
 		{
 			using (var db = new ProjectDBContext())

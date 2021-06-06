@@ -13,7 +13,6 @@ E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalanc
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\LoadBalancer.pdb
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\Common.dll
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\Common.pdb
-E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csprojAssemblyReference.cache
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csproj.CoreCompileInputs.cache
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csproj.CopyComplete
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.exe
@@ -98,3 +97,4 @@ E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalanc
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\EntityFramework.SqlServer.xml
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\LoadBalancer\obj\Debug\LoadBalancer.csproj.AssemblyReference.cache

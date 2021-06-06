@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -19,13 +20,14 @@ namespace Client
 
 		public Writer()
 		{
-			Log = new Log(@"FILElog\writerLog.txt");
+			Log = new Log(@"FILElog\writerLog.txt");        
 		}
 		public Log Log { get => log; set => log = value; }
 
 		/// <summary>
 		/// Menu koji ispisuje moguce komande korisnika
 		/// </summary>
+		[ExcludeFromCodeCoverage]
 		public int Menu()
 		{
 			Console.WriteLine("MENU:");
@@ -44,12 +46,12 @@ namespace Client
 				Console.WriteLine(e.Message);
 				i = -1;
 			}
-
 			return i;
 		}
 		/// <summary>
 		/// Menu2 koji nudi moguce kodove za rucno slanje podataka ka Balancer servisu
 		/// </summary>
+		[ExcludeFromCodeCoverage]
 		public int Menu2()
 		{
 			int a;
@@ -70,11 +72,12 @@ namespace Client
 						break;
 					}
 			}
-			return a;
+			return a-1;
 		}
 		/// <summary>
 		/// Menu3  koji nudi unos value za rucno slanje podataka servisu
 		/// </summary>
+		[ExcludeFromCodeCoverage]
 		public int Menu3()
 		{
 			int b;
@@ -91,30 +94,26 @@ namespace Client
 		/// Metoda za slanje svako dvije sekune proizvoljnih vrijednosti Item stukture
 		/// </summary>
 		/// <param name="kanal">Kao parametar koji se salje kanalom</param>
+		[ExcludeFromCodeCoverage]
 		public void Start(IBalancerService kanal)
 		{
-
 			int a, b;
 			Item item;
 			Random r = new Random();
 			Random rr = new Random();
-			double v = r.Next(1, 1000);
+            double v = r.Next(1, 1000);
 			int c = rr.Next(0, 7);
-
-			
-
 			while (true)
 			{
 				Console.WriteLine("Ako zelite da pauzirate rad writera pritisnite [ENTER].");
 				while (true)
 				{
-					//Pritisak na bilo koje ugme prekida slanje
+					//Pritisak na bilo koje dugme prekida slanje
 					if (Console.KeyAvailable)
 					{
 						if (Console.ReadKey().Key == ConsoleKey.Enter)
 								break;
 					}
-
 					Thread.Sleep(2000);
 					item = new Item((Code)c, v);
 
@@ -128,15 +127,40 @@ namespace Client
 				switch (Menu())
 				{
 					case 1:
-						kanal.Off();//opcija 1 gasi workera
-						break;
+                        {
+							try
+                            {
+								kanal.Off();//opcija 1 gasi workera
+							}
+							catch(NullReferenceException ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+							break;
+						}
 					case 2:
-						kanal.On();//opcija dva iz menu pali workera na serverskoj strani
-						break;
+						{
+							try
+							{
+								kanal.On();//opcija 2 upali workera
+							}
+							catch (NullReferenceException ex)
+							{
+								Console.WriteLine(ex.Message);
+							}
+							break;
+						}
 					case 3:
 						a = Menu2();//rucno slanje podataka ka LoadBalanceru
 						b = Menu3();
-						kanal.Write(new Item((Code)a, b));
+						try
+                        {
+							kanal.Write(new Item((Code)a, b));
+						}
+						catch(NullReferenceException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
 						break;
 					case 4:
 						a = Menu2();//izlistavanje podataka iz baze podataka za dati kod i vremenski interval
@@ -145,22 +169,34 @@ namespace Client
 							int br = kanal.NumberOfWorkers();
 							Console.WriteLine($"Unesite workerId [0-{br - 1}]:");
 							if (int.TryParse(Console.ReadLine(), out b))
-								if (b > -1 && b < br - 1)
+								//if (b > -1 && b < br - 1)
 									break;
 						}
-						Console.WriteLine("Unesite vreme od [format -> 2009 - 05 - 08 14:40:52]:");
+						Console.WriteLine("Unesite vreme od [format -> 2009 - 12 - 22 14:40:52]:");
 						string s = Console.ReadLine();
-						DateTime myDate = DateTime.ParseExact(s, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-						Console.WriteLine("Unesite vreme do [format -> 2009 - 05 - 08 14:40:52]:");
-						string ss = Console.ReadLine();
-						DateTime myDate2 = DateTime.ParseExact(ss, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-						List<Item> lista = kanal.ItemsInterval(b, (Code)a, myDate, myDate2);
-						Console.WriteLine("RESULT: ");
-						foreach (Item i in lista)
-							Console.WriteLine(i);
-						break;
+						DateTime myDate;
+						DateTime myDate2;
+						try
+                        {
+							 myDate = DateTime.ParseExact(s, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+							Console.WriteLine("Unesite vreme do [format -> 2009 - 12 - 22 14:40:52]:");
+							string ss = Console.ReadLine();
+							 myDate2 = DateTime.ParseExact(ss, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+							List<Item> lista = kanal.ItemsInterval(b, (Code)a, myDate, myDate2);
+							log.Read(myDate, myDate2, DateTime.Now, b,(Code)a);
+							Console.WriteLine("RESULT: ");
+							foreach (Item i in lista)
+								Console.WriteLine(i);
+							break;
+						}
+					    catch(Exception e)
+                        {
+							Console.WriteLine(e.Message);
+							break;
+                        }
+						
 					case 5: //odustajanje od bilo koje akcije i nakon toga program se gasi
-						Log.Write(DateTime.Now);
+						Log.WriteTurnOff(DateTime.Now);//biljezenje gasenja
 						return;
 					default:
 						Console.WriteLine("Nepostojeca komanda...");

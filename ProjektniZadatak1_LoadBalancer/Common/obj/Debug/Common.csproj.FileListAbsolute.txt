@@ -9,3 +9,4 @@ E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalanc
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.dll
 E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.pdb
+E:\Tea\fax\3.godina\2.sem\res\Projekat-GIT\Projekat\ProjektniZadatak1_LoadBalancer\Common\obj\Debug\Common.csproj.AssemblyReference.cache

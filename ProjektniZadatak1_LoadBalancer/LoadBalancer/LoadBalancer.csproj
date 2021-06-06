@@ -175,6 +175,8 @@
     <Compile Include="DB\DBProvider.cs" />
     <Compile Include="DB\ItemTable.cs" />
     <Compile Include="DB\ProjectDBContext.cs" />
+    <Compile Include="Description.cs" />
+    <Compile Include="ListDescription.cs" />
     <Compile Include="Migrations\20210531110722_m1.cs" />
     <Compile Include="Migrations\20210531110722_m1.designer.cs">
       <DependentUpon>20210531110722_m1.cs</DependentUpon>
